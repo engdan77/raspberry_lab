@@ -122,6 +122,8 @@ Koppla nedan ...
 ![hund_elektronik](/Users/edo/git/my/raspberry_lab/dokument/hund_elektronik.png)
 
 
+PS. "motståndet" mot den blåa "temperatur-sensor" ska vara det motstånd som är på 47Kohm (starkare), du har en uppmärkt för detta.
+Det motstånd du har för LED är de svagare som vi inte har markerat upp.
 
 ... och med nedan kod som är lite mer komplext, men har försökt använda så enkel lätt-läst kod så tror att även om inte alla pusselbitar faller på plats så kommer det mesta visa sig självförklarande .. det fina med Python 😏👍🏻
 
