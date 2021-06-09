@@ -1,10 +1,10 @@
 from gpiozero import Device, LED, PWMLED, Button
 from gpiozero.pins.mock import MockFactory
 from unittest.mock import Mock
+import pygame.mixer as mixerenhet
 import time
 import sys
 from cowsay import kitty as säger
-from playsound import playsound as spela_ljud
 
 if sys.platform == 'darwin':
     Device.pin_factory = MockFactory()
@@ -12,8 +12,9 @@ if sys.platform == 'darwin':
     temperatur_enhet = Mock()
     PWMLED = Mock()
 else:
-    import Adafruit_DHT.DHT11 as temperatur_enhet
-    import Adafruit_DHT.read_retry as temperatur_läsare
+    import Adafruit_DHT
+    temperatur_enhet = Adafruit_DHT.DHT11
+    temperatur_läsare = Adafruit_DHT.read_retry
 
 EN_SEKUND = 1
 
@@ -32,7 +33,9 @@ class Hund():
         self.födsel_temperatur = self.känn_temperatur()
         hörsel.when_activated = self.apport
         mun.when_activated = self.ät
-        säger("Vov!!! jag heter", self.namn)
+        säger(f"Vov!!! nu är jag född och jag heter {self.namn}...\n"
+              f"Nu när jag föddes så är jag {self.födsel_temperatur} grader")
+        mixerenhet.init()
         self.skäll()
 
     def slå_hjärtslag(self, hjärtslag_per_sekund=10):
@@ -42,9 +45,9 @@ class Hund():
     def nollställ_hjärtslag(self):
         self.hjärtslag_räknare = 0
 
-    def känn_temperatur(self, pinne=temperatur_pinne):
-        fuktighet, temperatur = temperatur_läsare(temperatur_enhet, pinne)
-        return temperatur
+    def känn_temperatur(self, pinne=temperatur_pinne, antal_försök=10, normal_temp=23):
+        fuktighet, temperatur = temperatur_läsare(temperatur_enhet, pinne, retries=antal_försök)
+        return temperatur or normal_temp
 
     def dax_att_känna_efter(self, efter_hur_många_hjärtslag=100):
         self.hjärtslag_räknare = self.hjärtslag_räknare + 1
@@ -58,30 +61,33 @@ class Hund():
         vänster_öga.blink(on_time=tid, off_time=tid, n=antal)
         höger_öga.blink(on_time=tid, off_time=tid, n=antal)
 
-    def pulsera_nosen(self, antal=4):
-        nos.pulse(n=antal)
+    def pulsera_nosen(self, tid_sekunder=1, antal=4):
+        nos.pulse(fade_in_time=tid_sekunder, fade_out_time=tid_sekunder, n=antal, background=False)
 
     def apport(self):
-        print('🦴')
+        print(self.namn, 'springer apport 🦴')
         self.blinka_ögonen(0.2, 10)  # Snabbare än vanligt
         self.skäll()
 
     def ät(self):
-        print('🌭')
+        print(self.namn, 'äter gladligen 🌭')
         self.blinka_ögonen()
-        spela_ljud('ljud/eat.mp3')
+        mixerenhet.music.load('ljud/eat.mp3')
+        mixerenhet.music.play()
 
     def skäll(self):
-        spela_ljud('ljud/vov.wav')
+        mixerenhet.music.load('ljud/vov.mp3')
+        mixerenhet.music.play()
 
-    def lev(self, värmeslag_temparatur_ökning=2):
+    def lev(self, värmeslag_temparatur_ökning=1):
         while True:
             self.slå_hjärtslag()
             if self.dax_att_känna_efter() is True:
                 temperatur_just_nu = self.känn_temperatur()
-                print(self.namn, "känner att hans päls just nu är är", temperatur_just_nu, "grader")
-                if temperatur_just_nu > temperatur_just_nu + värmeslag_temparatur_ökning:
-                    print('🥵') and self.pulsera_nosen()
+                print("Grr.. min päls just nu är", temperatur_just_nu, "grader")
+                if temperatur_just_nu is not None and temperatur_just_nu >= self.födsel_temperatur + värmeslag_temparatur_ökning:
+                    print('🥵')
+                    self.pulsera_nosen()
 
 
 if __name__ == '__main__':
