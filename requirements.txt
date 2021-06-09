@@ -1,0 +1,8 @@
+adafruit-dht==1.4.0
+chardet==3.0.4
+colorzero==1.1
+cowsay==4.0
+pgzero==1.2
+pigpio==1.78
+playsound==1.2.2
+pygame==1.9.4.post1
