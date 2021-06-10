@@ -1,7 +1,7 @@
 raspberry_lab
 ===============
 
-(Denna sida har många länkar som är enklare att följa/klicka om du istället går till xxxxx om du läser en pappers-version)
+(Denna sida har många länkar som är enklare att följa/klicka om du istället går till https://bit.ly/2SmYVrj om du läser en pappers-version)
 
 ## Grattis David !!!
 
@@ -87,8 +87,11 @@ Och klickar på "**Kör**" ✅ så bör denna lampa blinka till du klickar "**St
 I så fall är det toppen 🙌... och jag kan varm rekommendera denna seria av YouTube klipp som förklarar mycket enkelt det absolut mest grundläggande ..
 
 [Python - Grunder - Del 1 - Variabler och listor](https://www.youtube.com/watch?v=iUpCT-oCu1U&t=1637s)
+
 [Python - Grunder - Del 2 - Villkor och loopar](https://www.youtube.com/watch?v=SVBVvtTycFc&t=2221s)
+
 [Python - Grunder - Del 3 - Funktioner](https://www.youtube.com/watch?v=26ciA4FmYfI)
+
 [Python svenska - 18 - Klasser och metoder](https://www.youtube.com/watch?v=iJVk_3H1Rvg)  *(detta är nog lite överkurs men för mitt experiment nedan bra att ha kläm på)*
 
 Nu har du lite kläm på Python som språk ... 
