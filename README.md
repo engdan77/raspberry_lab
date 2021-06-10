@@ -7,9 +7,9 @@ raspberry_lab
 
 Vi tänkte till din födelsedag skulle få ett litet "paket" 🎁 för att tillåta dig snickra ihop lite enklare elektronik och programmera för att få en liten känsla över hur enkelt det kan vara om man har intresset 😁
 
-Tänkte att inledningsvis att använda en Raspberry Pi 🍓 vore enklaste för detta ändanmål då dels kan använda den som en vanlig dator (skriva kod direkt på den) men har också [GPIO](https://www.raspberrypi.org/documentation/usage/gpio/) pinnar som är nyckeln till detta. Med dessa kan vi både läsa elektroniska signaler (3.3 volt) men också skicka ut signalet vilket är toppen för att styra eller läsa av komponenter.
+Tänkte att inledningsvis att använda en **Raspberry Pi** 🍓 vore enklaste för detta ändanmål då dels kan använda den som en vanlig dator (skriva kod direkt på den) men har också [GPIO](https://www.raspberrypi.org/documentation/usage/gpio/) pinnar som är nyckeln till detta. Med dessa kan vi både läsa elektroniska signaler (3.3 volt) men också skicka ut signalet vilket är toppen för att styra eller läsa av komponenter.
 
-Som programmerings språk finns det flera valmöjligheter, men jag kommer lura över dig till att använda [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) 🐍 som bara är bland de lättaste språken att börja med, dessutom är ett av det bästa "full-spektrum" (utan begränsningar funktionsmässigt) enligt min mening, vare det handlar om att utveckla applikationer, webtjänster, AI, mattematik eller mikrokontrolenheter. 
+Som programmerings språk finns det flera valmöjligheter, men jag kommer lura över dig till att använda [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) 🐍 som bara är bland de lättaste språken att börja med, dessutom är ett av det bästa "full-spektrum" (utan begränsningar funktionsmässigt) enligt min mening, vare det handlar om att utveckla applikationer, webtjänster, AI, mattematik, skapa automationer i MineCraft ...  eller styra mikrokontrolenheter eller i detta fall "mikro datorenhet". 
 
 <u>**Så vilka förberedelser behövs för att köra loss med lite experiment utöver det du fått...**</u> 
 
@@ -23,7 +23,7 @@ Som programmerings språk finns det flera valmöjligheter, men jag kommer lura �
 - Kombinerad tangentbord/mus med USB .... eller en USB-hub (helst med egen strömförsörjning) med tangentbord och mus kopplad till .... detta är för Raspberry Pi har väldigt få USB-portar och undviker enheter som drar hög strömstyrka
 - Nätverkssladd (om inte ert wifi fungerar)
 
-<img src="/Users/edo/git/my/raspberry_lab/dokument/hur_koppla_ihop_raspberrypi.jpg" alt="hur_koppla_ihop_raspberrypi" style="zoom:30%;" />
+
 
 ### Hur börjar jag kopplar du in Raspberry Pi.... med skärm/tangentbord/mus .. 
 
@@ -31,13 +31,15 @@ Jag skulle föreslå att du kopplar in så att du åtminstone kan använda den s
 
 Om du använder skärm + dator/mus så är det enda du behöver göra är att titta på skärmen medan den startar upp.
 
+<img src="https://raw.githubusercontent.com/engdan77/project_images/master/uPic/hur_koppla_ihop_raspberrypi.jpg" alt="hur_koppla_ihop_raspberrypi" style="zoom:30%;" />
+
 ### Kan jag sitta via min dator och styra Raspberry Pi istället ?? ... Ja !!!
 
-I detta fall så klarar du dig utan både skärm, tangentbord/mus ... men den måste komma in på ert nätverk .. förhoppningsvis har jag lyckats för-konfigurera "wifi" USB stickan med ert wifi och kommer automatiskt koppla upp sig,  om detta misslyckats så går det utmärkt att koppla en nätverkskabel direkt från Raspberry Pi till er hemma-router (kommer alltid fungera).
+I detta fall så klarar du dig utan både skärm, tangentbord/mus ... men den måste komma in på ert nätverk .. förhoppningsvis har jag lyckats för-konfigurera "wifi" USB stickan med ert wifi och kommer automatiskt koppla upp sig (annar kan du följa [denna](https://www.youtube.com/watch?v=lfHRLLRbErw) video-klipp för fixa detta),  om detta misslyckats så går det utmärkt att koppla en nätverkskabel direkt från Raspberry Pi till er hemma-router (kommer alltid fungera).
 
-Du kommer behöva IP-addressen till Raspberry Pi, och enklast är om du har skärmen inkopplad och under uppstart bör du se dess IP-address dyka upp på skärmen, ett annat alternativ om du vet hur du kopplar upp mot din router och läsa av där ... sista alternativet är att använda ett Windows program (gratis) som exempelvis Fing du kan ladda ned [här](https://www.fing.com/products/fing-desktop).
+Du kommer behöva **IP-addressen** till Raspberry Pi, och enklast är om du har skärmen inkopplad och under uppstart bör du se dess IP-address dyka upp på skärmen, ett annat alternativ om du vet hur du kopplar upp mot din router och läsa av där ... sista alternativet är att använda ett Windows program (gratis) som exempelvis Fing du kan ladda ned [här](https://www.fing.com/products/fing-desktop) som bör kunna "scanna" av ditt nätverk och lura ut detta åt dig.
 
-Sedan från din Mac/Windows dator får du ladda ned RealVNC [härifrån](https://www.realvnc.com/en/connect/download/viewer/windows/).
+Sedan från din Mac/Windows dator får du ladda ned RealVNC viewer [härifrån](https://www.realvnc.com/en/connect/download/viewer/windows/).
 
 Sedan kör du detta program och väljer att skapa en koppling mot ovan IP-address, och när den frågar efter ett lösenord anger du
 
@@ -46,19 +48,20 @@ username: pi
 password: raspberrylab
 ```
 
- ![kod_editor](/Users/edo/git/my/raspberry_lab/dokument/kod_editor.jpg)
+### Var anger jag min kod... Hur kommer jag igång? 🥳
 
-### Var anger jag min kod...?
+När du antingen använder skärmen eller VNC så bör du fått en kod-editor "mu" som är inlagd att starta automatiskt (finns även i hallon-menyn -> programmering). Från denna vyn, kan du välja "**Nytt**", "**Kör**" som du oftast kommer använda. Alla Python program bör ha filändelsen `.py`
 
-När du antingen använder skärmen eller VNC så bör du fått en kod-editor "mu" som är inlagd att starta automatiskt.
-Från denna vyn, kan du välja "**Nytt**", "**Kör**" som du oftast kommer använda. Alla Python program bör ha filändelsen `.py`
+![kod_editor](https://raw.githubusercontent.com/engdan77/project_images/master/uPic/kod_editor.jpg)
 
-### Första exempel för att bli lite varm i kläderna ...
+### Första exempel med en enkel LED lampa för att bli lite varm i kläderna och få en känsla ...
 
-.. jag skäl ett väldigt enkelt exempel från [denna](https://gpiozero.readthedocs.io/en/stable/recipes.html) sida som har många flera bra exempel att följa ...
+.. jag skäl ett väldigt enkelt exempel från [denna](https://gpiozero.readthedocs.io/en/stable/recipes.html) sida som har många flera bra exempel att följa jag kan varmt rekommendera att göra...
 Du bör ha motstånd (100 ohm) och LED lampa som du ka koppla in som nedan, din modell har färre pinnar (26 st) än bilden visar med de pinnar som visas i dessa exempel ligger på samma plats och med samma nummer så dessa exempel ska fungera lika ..
 
-![forsta_exempel](/Users/edo/git/my/raspberry_lab/dokument/forsta_exempel.jpg)
+![forsta_exempel.jpg](https://i.loli.net/2021/06/10/B85pb6zq3DJk9EQ.jpg)
+
+
 
 Om du skriver en kod nu som
 
@@ -77,7 +80,7 @@ while True:
 
 
 
-Och klickar på "**Kör**" så bör denna lampa blinka till du klickar "**Stop**"
+Och klickar på "**Kör**" ✅ så bör denna lampa blinka till du klickar "**Stop**" 🛑
 
 ### Vill du lära dig lite med grundläggande Python programmering innan vi kör vidare ...?
 
@@ -86,18 +89,23 @@ I så fall är det toppen 🙌... och jag kan varm rekommendera denna seria av Y
 [Python - Grunder - Del 1 - Variabler och listor](https://www.youtube.com/watch?v=iUpCT-oCu1U&t=1637s)
 [Python - Grunder - Del 2 - Villkor och loopar](https://www.youtube.com/watch?v=SVBVvtTycFc&t=2221s)
 [Python - Grunder - Del 3 - Funktioner](https://www.youtube.com/watch?v=26ciA4FmYfI)
-[Python svenska - 18 - Klasser och metoder](https://www.youtube.com/watch?v=iJVk_3H1Rvg)
+[Python svenska - 18 - Klasser och metoder](https://www.youtube.com/watch?v=iJVk_3H1Rvg)  *(detta är nog lite överkurs men för mitt experiment nedan bra att ha kläm på)*
 
 Nu har du lite kläm på Python som språk ... 
 
-### Vill du bekanta dig lite mer med gpiozero, hur du använder Python för att styra GPIO pinnar ...?
 
-Toppen, då kan jag rekommendera denna 🤪
+
+### Vill du bekanta dig lite mer med gpiozero biblioteket, hur du använder Python för att styra GPIO pinnar ...?
+
+Toppen, då kan jag rekommendera denna video nedan ..  📼
+
 [Raspberry Pi - Control GPIO Pins with GPIOzero Library](https://www.youtube.com/watch?v=8N-5rEclspw)
-... nu har du nog fått lite kläm på hur man kan snacka med saker med Python .. 
+
+... du bör nu har du nog fått lite kläm på hur man kan snacka med saker med Python .. och du kan gå vidare och experimentera vidare på egen hand ... 
 
 
-Vilka mer roliga sensorer och komponenter har du att leka med i leklådan..?
+
+### Vilka mer roliga sensorer och komponenter har du att leka med i leklådan..?
 
 Jo .. du har dessa och med följande exempel du kan testa med
 
@@ -111,19 +119,22 @@ Jo .. du har dessa och med följande exempel du kan testa med
 
 Om du saknar nåt rekommenderar jag [Kjell & Company](https://www.kjell.com/se) eller [AliExpress](https://www.aliexpress.com/) 🤑
 
+
+
 ### Vill du ge dig på något mer avancerat ....?
 
-Om du följer kopplings schemat nedan samt kod exemplet nedan som du kan jobba vidare på, så har du lyckats utvecklat en **tamagotchi-hugo** .. 😅🐶
+Om du följer kopplings schemat nedan samt kod exemplet nedan som du kan jobba vidare på, så har du lyckats utvecklat en **tamagotchi-hugo** .. 🐶 + 🤖
 
-<img src="/Users/edo/git/my/raspberry_lab/dokument/tamagotchi.png" alt="tamagotchi" style="zoom:50%;" /><img src="/Users/edo/git/my/raspberry_lab/dokument/hugo.png" alt="hugo" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/engdan77/project_images/master/uPic/tamagotchi.png" alt="tamagotchi" style="zoom:50%;" /><img src="/Users/edo/git/my/raspberry_lab/dokument/hugo.png" alt="hugo" style="zoom:50%;" /
+
 
 Koppla nedan ...
 
-![hund_elektronik](/Users/edo/git/my/raspberry_lab/dokument/hund_elektronik.png)
+![hund_elektronik](https://raw.githubusercontent.com/engdan77/project_images/master/uPic/hund_elektronik.png)
 
 
-PS. "motståndet" mot den blåa "temperatur-sensor" ska vara det motstånd som är på 47Kohm (starkare), du har en uppmärkt för detta.
-Det motstånd du har för LED är de svagare som vi inte har markerat upp.
+PS. "motståndet" mot den blåa "temperatur-sensor" ska vara det motstånd som är på 47 Kohm (starkare), du har en uppmärkt för detta.
+Det motstånd du har för LED är de svagare som vi inte har markerat upp och bör vara på 100 ohm eller nåt.
 
 ... och med nedan kod som är lite mer komplext, men har försökt använda så enkel lätt-läst kod så tror att även om inte alla pusselbitar faller på plats så kommer det mesta visa sig självförklarande .. det fina med Python 😏👍🏻
 
@@ -156,15 +167,15 @@ class Hund():
         self.hjärtslag_räknare = 0
         self.födsel_temperatur = self.känn_temperatur()  # Vad är temperaturen vid födsel för att jämföra med senare
         # När vi föder en hund vill vi att den ska veta/göra följande
-        hörsel.when_activated = self.apport
-        mun.when_activated = self.ät
+        hörsel.when_activated = self.apport  # Detta är en s.k. "callback" säger att den hörsel (ljud sensor) registreras ska han "apport"
+        mun.when_activated = self.ät  # Detta är motsvarande när hunden matas (knappen) så ska han köra metoden "ät"
         säger(f"Vov!!! nu är jag född och jag heter {self.namn}...\n"
               f"Nu när jag föddes så är jag {self.födsel_temperatur} grader")
-        mixerenhet.init()
-        self.skäll()
+        mixerenhet.init()  # Detta är bara för att initiera ljudenheten på Raspberry Pi
+        self.skäll()  # Ge ett skall
 
     def slå_hjärtslag(self, hjärtslag_per_sekund=10):
-        # Denna "metod" bestämmer hur ofta/regelbundet hjärtat ska slå
+        # Denna "metod" bestämmer hur ofta/regelbundet hjärtat ska slå, högre = högre hastighet på räknaren
         time.sleep(EN_SEKUND / hjärtslag_per_sekund)
         self.hjärtslag_räknare = self.hjärtslag_räknare + 1
 
@@ -178,7 +189,7 @@ class Hund():
         return temperatur or normal_temp
 
     def dax_att_känna_efter(self, efter_hur_många_hjärtslag=100):
-        # Denna metod är enbart för att svara på frågan om det är dags för hunden att känna efter sin päls igen
+        # Denna metod är enbart för att svara på frågan om det är dags för hunden att känna efter sin päls igen baserad på vår "räknare" vi ökar resp. nollställer vid behov
         self.hjärtslag_räknare = self.hjärtslag_räknare + 1
         if self.hjärtslag_räknare > efter_hur_många_hjärtslag:
             self.nollställ_hjärtslag()
@@ -205,7 +216,7 @@ class Hund():
         # Denna metod talar om vad som händer när hunden äter
         print(self.namn, 'äter gladligen 🌭')
         self.blinka_ögonen()
-        mixerenhet.music.load('ljud/eat.mp3')
+        mixerenhet.music.load('ljud/eat.mp3')  # Detta spelar upp ljudet "eat.mp3" som ska ligga i katalogen ljud
         mixerenhet.music.play()
 
     def skäll(self):
@@ -226,16 +237,18 @@ class Hund():
                     self.pulsera_nosen()
 
 
-# Här börjar huvud programmet
+# Här börjar huvud programmet ... NU KÖR VI !!!!
 hugo = Hund(namn='Hugo')  # Vi föder en ny "Hund" med namnet Hugo
-hugo.lev()  # Vi talar för hugo att börja leva
+hugo.lev()  # Vi talar för hugo att börja leva .... "It's ALIIIIIIVE ... " (citat från "Frankenstein") 🧛
 ```
 
 
 
-... nu .. detta är bara en början .. med ovan sensorer så kan du antingen börja nytt projekt eller lägga till flera egenskaper till Hugo ... 🤓
+... nu .. detta är bara en början .. med de sensors som du har i arsinalen bör du antingen kunna börja nytt projekt eller lägga till flera egenskaper till en Hugo version 2.0 ... 3.0 ...  🤓
 
-Vill du tjuvtitta så har du ett YouTube klipp här hur det hela blev ...
+Vill du tjuvtitta så har du ett YouTube klipp [här](https://youtu.be/hQaHrYlHHQU) hur det hela blev ...
+
+![hugo_animation](https://raw.githubusercontent.com/engdan77/project_images/master/uPic/hugo_animation.gif)
 
 
 
