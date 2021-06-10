@@ -129,8 +129,7 @@ Om du saknar nåt rekommenderar jag [Kjell & Company](https://www.kjell.com/se) 
 
 Om du följer kopplings schemat nedan samt kod exemplet nedan som du kan jobba vidare på, så har du lyckats utvecklat en **tamagotchi-hugo** .. 🐶 + 🤖
 
-<img src="https://raw.githubusercontent.com/engdan77/project_images/master/uPic/tamagotchi.png" alt="tamagotchi" style="zoom:50%;" /><img src="/Users/edo/git/my/raspberry_lab/dokument/hugo.png" alt="hugo" style="zoom:50%;" /
-
+<img src="https://raw.githubusercontent.com/engdan77/project_images/master/uPic/tamagotchi.png" alt="tamagotchi" style="zoom:50%;" />
 
 Koppla nedan ...
 
