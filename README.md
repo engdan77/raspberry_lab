@@ -118,6 +118,7 @@ Jo .. du har dessa och med följande exempel du kan testa med
 - [Avståndsmätare](https://gpiozero.readthedocs.io/en/stable/recipes.html#distance-sensor)
 - [Ljud sensor](https://www.youtube.com/watch?v=GiXNUYPrQ7I)
 - [DHT11 (temperatur/fuktighet) sensor](https://www.youtube.com/watch?v=KUr8WgSIsfk)
+- [Reed-switch](https://medium.com/conectric-networks/playing-with-raspberry-pi-door-sensor-fun-ab89ad499964) (dörr sensor)
 - Sladdar, motstånd, kondensator
 
 Om du saknar nåt rekommenderar jag [Kjell & Company](https://www.kjell.com/se) eller [AliExpress](https://www.aliexpress.com/) 🤑
@@ -256,6 +257,15 @@ Vill du tjuvtitta så har du ett YouTube klipp [här](https://youtu.be/hQaHrYlHH
 
 
 
+
+Lite tips på andra projekt du kanske går snickra på med de dela du fått .. 💡
+
+- Inbrottslarm? Vi kan skicka mail (jag kan ge dig tips hur) när detta sker
+- Läsa av avståndet när bilen är parkerad hemma?
+- Skicka en väck signal när det blir tillräckligt ljust i rummet?
+
+
+Ha kul .... 🎊
 
 
 
