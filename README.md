@@ -23,6 +23,20 @@ Som programmerings språk finns det flera valmöjligheter, men jag kommer lura �
 - Kombinerad tangentbord/mus med USB .... eller en USB-hub (helst med egen strömförsörjning) med tangentbord och mus kopplad till .... detta är för Raspberry Pi har väldigt få USB-portar och undviker enheter som drar hög strömstyrka
 - Nätverkssladd (om inte ert wifi fungerar)
 
+### Vad är allt detta !?!?
+
+##### Diverse extra komponenter
+
+<img src="https://raw.githubusercontent.com/engdan77/project_images/master/uPic/labdelar_01.png" alt="labdelar_01" style="zoom:50%;" />
+
+##### Komponenter för tamagotchi hugo
+
+<img src="https://raw.githubusercontent.com/engdan77/project_images/master/uPic/labdelar_02.png" alt="labdelar_02" style="zoom:50%;" />
+
+
+
+
+
 
 
 ### Hur börjar jag kopplar du in Raspberry Pi.... med skärm/tangentbord/mus .. 
