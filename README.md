@@ -43,6 +43,8 @@ Som programmerings språk finns det flera valmöjligheter, men jag kommer lura �
 
 Jag skulle föreslå att du kopplar in så att du åtminstone kan använda den som dator antingen genom tangentbord (enklast) och/eller koppla upp från din egna stationära dator (jag går genom senare hur).
 
+Sedan ska SD-kortet in i Raspberry PI, samt Wifi USB dongle sättas in-
+
 Om du använder skärm + dator/mus så är det enda du behöver göra är att titta på skärmen medan den startar upp.
 
 <img src="https://raw.githubusercontent.com/engdan77/project_images/master/uPic/hur_koppla_ihop_raspberrypi.jpg" alt="hur_koppla_ihop_raspberrypi" style="zoom:30%;" />
